@@ -11,7 +11,7 @@ This project simulates a real-world AWS issue where a Lambda function fails to c
 ##  Steps I Took
 	1.	Deployed a working Lambda function to copy files from one S3 bucket to another.
 	2.	Set up a broken simulation using the same code, but introduced a misconfigured IAM role.
-	3.	Uploaded a test file to the source bucket — but nothing appeared in the destination.
+	3.	Uploaded a test file to the source bucket but nothing appeared in the destination.
 	4.	Opened CloudWatch Logs and saw:Error: An error occurred (AccessDenied) when calling the GetObject operation
 	5.	Reviewed the execution role attached to the function.
 	6.	Found it was using the default basic role with no S3 permissions.
@@ -19,7 +19,7 @@ This project simulates a real-world AWS issue where a Lambda function fails to c
 	•	s3:GetObject on source bucket
 	•	s3:PutObject on destination bucket
 	8.	Attached this custom role to the Lambda function.
-	9.	Re-tested the upload — and the file was successfully copied to the destination bucket.
+	9.	Re-tested the upload and the file was successfully copied to the destination bucket.
 
 
 ## Why I Did This
